@@ -16,7 +16,7 @@ using Services.PayrollService;
 using System;
 using System.Threading.Tasks;
 
-namespace EWallet.API.Controllers.V1
+namespace PayrollSystem.Controllers.V1
 {
     public class PayrollController : BaseController
     {

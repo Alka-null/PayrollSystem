@@ -23,7 +23,7 @@ internal class Program
         //builder.Services.AddSwaggerGen();
         var configurationBuilder = new ConfigurationBuilder()
             .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-            .AddJsonFile("appsettings.Development.json", optional: true, reloadOnChange: true);
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
         var _config = configurationBuilder.Build();
         builder.Services.AddApplicationServices(_config);
@@ -59,10 +59,6 @@ internal class Program
 
         SeedCadresandPositions.SeedCadresAndPositions(app);
 
-        //SeedCurrencyDb.SeedCurrency(app);
-
-        //SeedSettlementAccountDb.SeedSettlementDb(app);
-
         app.UseHttpsRedirection();
 
         app.UseRouting();
@@ -78,7 +74,7 @@ internal class Program
 
         app.UseHangfireDashboard();
 
-        //RecurringJob.AddOrUpdate<IMonthlyPayrollCalculation>(x => x.CreateMonthlyPayroll(), "0 0 25 * * *");
+        RecurringJob.AddOrUpdate<IMonthlyPayrollCalculation>(x => x.CreateMonthlyPayroll(), "0 0 25 * * *");
         //RecurringJob.AddOrUpdate<IMonthlyPayrollCalculation>(x => x.CreateMonthlyPayroll(), "10 0 * * * *");
     }
 }

@@ -56,7 +56,7 @@ namespace PayrollSystem.ExtensionMethods
             //services.AddMvc(options => options.Filters.Add<ValidationFilter>());
 
             //            services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
-            //            services.AddHangfireServer();
+            services.AddHangfireServer();
 
             // services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 
@@ -85,8 +85,8 @@ namespace PayrollSystem.ExtensionMethods
                 //option.SignIn.RequireConfirmedEmail = true;
 
             })
-                    .AddEntityFrameworkStores<AppDbContext>();
-                    //.AddDefaultTokenProviders();
+            .AddEntityFrameworkStores<AppDbContext>();
+            //.AddDefaultTokenProviders();
             return services;
         }
     }

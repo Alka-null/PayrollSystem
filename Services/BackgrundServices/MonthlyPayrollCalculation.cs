@@ -20,21 +20,6 @@ namespace Services.BackgrundServices
             }
         }
         public void CreateMonthlyPayroll() {
-            //var cadrepayrollinfos = _unitOfWork.Cadres.GetEntities((x) =>
-            //{
-            //    var cadres = x.Include(s => s.BasicSalary).Include(p => p.Tax);
-            //    //var taxdeductions = new List<object>();
-            //    var cadreinfos = cadres.Select(d => new CadrePayrollInfo
-            //    {
-            //        CadreId = d.CadreId,
-            //        TaxWithheld = d.BasicSalary.Amount * d.Tax.TaxRate,
-            //        BasicSalary = d.BasicSalary.Amount,
-            //        HousingAllowance = d.HousingAllowance.Amount,
-            //        Pension = d.BasicSalary.Amount * d.Pension.Rate
-            //    }).ToList();
-            //    return cadreinfos;
-            //});
-
             var cadres = _unitOfWork.Cadres.GetAll().Include(s => s.BasicSalary).Include(p => p.Tax);
             var cadrepayrollinfos = cadres.Select(d => new CadrePayrollInfo
             {

@@ -14,7 +14,7 @@ using Services.JwtHandler;
 using System;
 using System.Threading.Tasks;
 
-namespace EWallet.API.Controllers.V1
+namespace PayrollSystem.Controllers.V1
 {
     public class AccountsController : BaseController
     {
@@ -104,7 +104,7 @@ namespace EWallet.API.Controllers.V1
                         DepartmentId = newEmployee.DepartmentId
 
                     };
-                    response.IsSuccess = true;
+                    response.IsSuccess = false;
                     return BadRequest(response);
                 };
 
