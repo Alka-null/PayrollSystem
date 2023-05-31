@@ -6,12 +6,15 @@ using DataLayer.DTO.Response;
 using DataLayer.Repository.Implementation;
 using DataLayer.Repository.Interface;
 using Entities.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Services.JwtHandler;
 using System;
+using System.Data;
 using System.Threading.Tasks;
 
 namespace PayrollSystem.Controllers.V1
@@ -39,6 +42,7 @@ namespace PayrollSystem.Controllers.V1
 
         [HttpPost]
         [Route("register-employee")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "SuperAdmin, Admin")]
         public async Task<ActionResult<Result<CreateEmployeeResponseDTO>>> RegisterAsync
             ([FromBody] CreateEmployeeRequestDTO model)
         {
