@@ -60,11 +60,13 @@ namespace PayrollSystem.ExtensionMethods.Seeders
 
                 if (!unitOfWork.Cadres.GetAll().Any())
                 {
-
+                    var i = 0;
                     foreach (var item in cadresinfo)
                     {
+                        i++;
                         var tax = new Tax
                         {
+                            TaxId= i,
                             CreatedDate = DateTime.Now,
                             TaxRate = item.Value[0],
                             Category = deduction
@@ -73,6 +75,7 @@ namespace PayrollSystem.ExtensionMethods.Seeders
 
                         var pension = new Pension
                         {
+                            PensionId= i,
                             CreatedDate = DateTime.Now,
                             Rate = item.Value[1],
                             Category = deduction
@@ -81,6 +84,7 @@ namespace PayrollSystem.ExtensionMethods.Seeders
 
                         var basicsalary = new BasicSalary
                         {
+                            BasicSalaryId= i,
                             CreatedDate = DateTime.Now,
                             Amount = item.Value[2],
                             Category = earning
@@ -89,6 +93,7 @@ namespace PayrollSystem.ExtensionMethods.Seeders
 
                         var housingallowance = new HousingAllowance
                         {
+                            HousingAllowanceId= i,
                             CreatedDate = DateTime.Now,
                             Amount = item.Value[3],
                             Category = earning
@@ -97,6 +102,7 @@ namespace PayrollSystem.ExtensionMethods.Seeders
 
                         cadres.Add(new Cadre
                         {
+                            CadreId= i,
                             CadreName = item.Key,
                             CreatedDate = DateTime.Now,
                             Tax = tax,
@@ -148,11 +154,13 @@ namespace PayrollSystem.ExtensionMethods.Seeders
                         "ExecutivePositions"
                         };
 
-
+                    var j = 0;
                     foreach (var item in positionsname)
                     {
+                        j++;
                         positions.Add(new Position
                         {
+                            PositionId= j,
                             PositionName = item,
                             CreatedDate = DateTime.Now,
                         });

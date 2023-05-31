@@ -74,7 +74,7 @@ internal class Program
 
         app.UseHangfireDashboard();
 
-        RecurringJob.AddOrUpdate<IMonthlyPayrollCalculation>(x => x.CreateMonthlyPayroll(), "0 0 25 * * *");
+        RecurringJob.AddOrUpdate<IMonthlyPayrollCalculation>(x => x.CreateMonthlyPayroll(), "0 0 * 25 * *");
         //RecurringJob.AddOrUpdate<IMonthlyPayrollCalculation>(x => x.CreateMonthlyPayroll(), "10 0 * * * *");
     }
 }

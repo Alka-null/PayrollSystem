@@ -46,7 +46,7 @@ namespace PayrollSystem.Controllers.V1
 
         [HttpGet]
         [Route("employee/getpayroll")]
-        public async Task<ActionResult<Result<CreateEmployeeResponseDTO>>> GetPayroll
+        public async Task<ActionResult<Result<PayrollResponseDto>>> GetPayroll
             ([FromQuery] PayrollRequestDto model)
         {
             Result<PayrollResponseDto> response = new Result<PayrollResponseDto>();
